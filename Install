@@ -79,26 +79,53 @@ ln -s $PYTHONPATH python
 ### the needed include files, and set permissions for this directory
 
 tar xvfp book.tar
-
-if [ -d www ]; then
-	cd www
-	if [ ! -d include ]; then
-		echo "Making 'include' directory in `pwd`"
-		mkdir include
-	fi
-	
-	cd $TOP
-	
-	gen_includes
-	
-	includeLinker
-	
-	mv rosetta_report.cgi ./www/rosetta_report.cgi
-	
-	chmod 750 www
-	chgrp www www
-
+if [ ! -d www ]; then
+	echo "An error has occured attempting to untar book.tar"
+	exit 1
 fi
+
+#####################################################################
+### Prep the www directory
+
+cd www
+
+if [ ! -d include ]; then
+	echo "Making 'include' directory in `pwd`"
+	mkdir include
+fi
+
+if [ -h rosetta_report.cgi ]; then
+	rm rosetta_report.cgi
+fi
+ln -s ../rosetta_report.cgi rosetta_report.cgi
+
+if [ -h Configuration.pyc ]; then
+	rm Configuration.pyc
+fi
+ln -s ../Configuration.pyc Configuration.pyc
+
+if [ -h Configuration ]; then
+	rm Configuration
+fi
+ln -s ../Configuration Configuration
+
+if [ -h python ]; then
+	rm python
+fi
+ln -s ../python python
+
+includeLinker
+
+#####################################################################
+### Generate includes, create solt links, and update permissions
+
+cd $TOP
+gen_includes
+
+chmod 750 www
+chgrp www www
+
+
 
 #
 # Warranty Disclaimer and Copyright Notice
