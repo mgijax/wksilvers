@@ -3,19 +3,17 @@
 #                                                                      #
 ########################################################################
 
-
-# Name of Sybase database as it appears in sysdatabases.
-DATABASE	mgd_release
+# Read-only Sybase user.
+DBUSER		mgd_public
 
 # Password for the read-only Sybase user.
 DBPASSWORD	mgdpub
 
-# Name of the Sybase server as it appears in the Interfaces file, formerly
-# known as DSQUERY.
-DBSERVER	DEV_MGI
+# Name of the Sybase server 
+DBSERVER	
 
-# Read-only Sybase user.
-DBUSER		mgd_public
+# Name of Sybase database
+DATABASE	
 
 # Title to be displayed on dynamically created gene/allele data pages
 WKSTITLE	MGI - The Coat Colors of Mice by WK Silvers
@@ -35,12 +33,12 @@ PYTHONPATH 	/usr/local/bin/python
 
 
 # Base URL to the book pages
-WKSBOOKURL      http://
+WKSBOOKURL      
 
 # Full URL coat:color anomalies
 COATANOM        http://www.informatics.jax.org/searches/marker_report.cgi?phenoslim=17
 
-# Base URL to the MGI accession_report
+# Base URL to the MGI searches
 MGISEARCHES	http://www.informatics.jax.org/searches/
 
 #####################################################################
@@ -52,3 +50,7 @@ INCALLRPT	http://www.informatics.jax.org/searches/allele_report.cgi?_Marker_key=
 INCPUBMED	http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Abstract&list_uids=
 
 INCUSRSUP	http://www.informatics.jax.org/mgihome/help/help.shtml
+
+INCPEOPLE	http://www.informatics.jax.org/mgihome/other/mgi_people.shtml
+
+INCHELPMAIL	http://www.informatics.jax.org/mgihome/support/tjl_inbox.shtml
