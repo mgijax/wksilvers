@@ -1,0 +1,48 @@
+#!./python
+
+import Configuration
+config = Configuration.get_Configuration ('Configuration', 1)
+
+
+def listToFile (str_list, filename):
+	print "writing %s" % filename
+	fp = open (filename, 'w')
+	for item in str_list:
+		fp.write ('%s\n' % item)
+	fp.close()
+	return
+
+def stringToFile (s, filename):
+	listToFile ( [s], filename)
+	return
+
+def main ():
+	stringToFile (config['INCACCRPT'], './www/include/mgiid_url.html')
+	stringToFile (config['INCALLRPT'], './www/include/mgiall_url.html')
+	stringToFile (config['INCPUBMED'], './www/include/pubmed_url.html')
+	stringToFile (config['INCUSRSUP'], './www/include/support_url.html')
+	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', './www/include/rosetta_url.html')
+	return
+
+if __name__ == '__main__':
+	main()
+#
+# Warranty Disclaimer and Copyright Notice
+# 
+#  THE JACKSON LABORATORY MAKES NO REPRESENTATION ABOUT THE SUITABILITY OR 
+#  ACCURACY OF THIS SOFTWARE OR DATA FOR ANY PURPOSE, AND MAKES NO WARRANTIES, 
+#  EITHER EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY AND FITNESS FOR A 
+#  PARTICULAR PURPOSE OR THAT THE USE OF THIS SOFTWARE OR DATA WILL NOT 
+#  INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS, OR OTHER RIGHTS.  
+#  THE SOFTWARE AND DATA ARE PROVIDED "AS IS".
+# 
+#  This software and data are provided to enhance knowledge and encourage 
+#  progress in the scientific community and are to be used only for research 
+#  and educational purposes.  Any reproduction or use for commercial purpose 
+#  is prohibited without the prior express written permission of the Jackson 
+#  Laboratory.
+# 
+# Copyright © 1996, 1999, 2002 by The Jackson Laboratory
+# All Rights Reserved
+#
+
