@@ -21,6 +21,8 @@ def main ():
 	stringToFile (config['INCALLRPT'], './www/include/mgiall_url.html')
 	stringToFile (config['INCPUBMED'], './www/include/pubmed_url.html')
 	stringToFile (config['INCUSRSUP'], './www/include/support_url.html')
+	stringToFile (config['INCPEOPLE'], './www/include/people_url.html')
+	stringToFile (config['INCHELPMAIL'], './www/include/inbox_url.html')
 	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', './www/include/rosetta_url.html')
 	return
 
