@@ -38,16 +38,16 @@ db.set_sqlLogin(DBUSER,DBPASSWORD,DBSERVER,DBNAME)
 
 class rosettaReportClass (CGI.CGI):
 ###########################################################
-# Concept: Container class for needed methods to create 
+# Concept: Container class for methods used to create 
 #   a rosettaStone table
 # IS:   
-# HAS:
-# DOES:
-# Implementation:
+# HAS: No parameters
+# DOES: Creates the rosetta stone table used in
+#   W.K. Silvers book
+# Implementation: 
 
     # Row counter used for gray/white table shading 
     totalRowCount = 0
-    ###
 
     def openRosettaPage(self):
     #######################################################
@@ -81,7 +81,7 @@ class rosettaReportClass (CGI.CGI):
             '<P>The table lists those genes described in The Coat Colors of '
             'Mice (as of 1979), with their current nomenclature and links '
             'to a complete list of alleles for each of these genes. </P>'
-            '<P>Please see also a <A HREF="'+ config['COATANOM'] + '">table</A> '
+            '<P>Please see also a <A HREF="'+ config['COATANOM'] + '" TARGET="_BLANK">table</A> '
             'of all currently known genes in MGI annotated with the phenotype '
             'term "coat color anomalies."</P>'
             )
@@ -111,8 +111,8 @@ class rosettaReportClass (CGI.CGI):
         
         tableRow = '<TR BGCOLOR=%s>'\
             ' <TD><A HREF = %s>%s</A></TD>'\
-            ' <TD><A HREF = %s>%s</A></TD>'\
-            ' <TD><A HREF = %s>%s</A></TD>'\
+            ' <TD><A HREF = %s TARGET="_BLANK">%s</A></TD>'\
+            ' <TD><A HREF = %s TARGET="_BLANK">%s</A></TD>'\
             '</TR>'
             
             
