@@ -93,6 +93,8 @@ if [ -d www ]; then
 	
 	includeLinker
 	
+	mv rosetta_report.cgi ./www/rosetta_report.cgi
+	
 	chmod 750 www
 	chgrp www www
 
