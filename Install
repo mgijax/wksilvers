@@ -1,17 +1,51 @@
 #!/bin/sh
 
-# variable definitions (edit as needed)
-#CONFIG_REL=/usr/local/mgi/lib/python/Configuration.pyc
+#####################################################################
+###  Variable definitions (edit as needed)
+
+TOP=`pwd`
 CONFIGURATION=Configuration
 
-# ensure that the config file exists
+
+#####################################################################
+### includeLinker function - create a ../include symbolic link in 
+### the current directory and in each subdirectory (recursively)
+
+includeLinker() {
+	# do this directory
+	if [ -h include ]; then
+		rm include
+	fi
+	if [ ! -d include ]; then
+		echo "Linking to include/ in `pwd`"
+		ln -s ../include include
+	fi
+
+	# then do all subdirectories recursively
+	for name in `ls`
+	do
+		if [ -d $name ]; then
+			if [ $name != include ]; then
+				if [ $name != CVS ]; then
+					cd $name
+					(includeLinker)
+					cd ..
+				fi
+			fi
+		fi
+	done
+	}
+
+
+
+#####################################################################
+### Read variables from the config file
 if test ! -r $CONFIGURATION
 then
 	echo "Missing configuration file.  Please create $CONFIGURATION."
 	exit 1
 fi
 
-# read variables from the config file
 exec 4<&0
 exec < $CONFIGURATION
 while read name value junk
@@ -19,19 +53,56 @@ do
 	case "$name" in
 		LIBDIRS)
 			LIBDIRS=$value;;
-		CONFIGFILE)
-			CONFIGFILE=$value;;
+		CONFIGPATH)
+			CONFIGPATH=$value;;
+		PYTHONPATH)
+			PYTHONPATH=$value;;
 	esac
 done
 exec 0<&4
 
-# add links to python and the config file from selected directories
+#####################################################################
+### Add link to compiled configuration python module 
+### and python executable
 if [ -h Configuration.pyc ]; then
 	rm Configuration.pyc
 fi
+ln -s $CONFIGPATH Configuration.pyc
 
-ln -s $CONFIGFILE Configuration.pyc
+if [ -h python ]; then
+	rm python
+fi
+ln -s $PYTHONPATH python
 
+#####################################################################
+### Un"tar" the www book files, create include directory, generate
+### the needed include files, and set permissions for this directory
+
+tar xvfp book.tar
+
+if [ -d www ]; then
+	cd www
+	if [ ! -d include ]; then
+		echo "Making 'include' directory in `pwd`"
+		mkdir include
+	fi
+	
+	cd $TOP
+	
+	gen_includes
+	
+	includeLinker
+	
+	chmod 750 www
+	chgrp www www
+
+fi
+
+
+
+
+#####################################################################
+### Set group and permissions
 chmod 750 rosetta_report.cgi
 chgrp www rosetta_report.cgi
 
