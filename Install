@@ -100,14 +100,6 @@ if [ -d www ]; then
 
 fi
 
-
-
-
-#####################################################################
-### Set group and permissions
-chmod 750 rosetta_report.cgi
-chgrp www rosetta_report.cgi
-
 #
 # Warranty Disclaimer and Copyright Notice
 # 
