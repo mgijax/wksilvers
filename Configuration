@@ -33,7 +33,7 @@ PYTHONPATH 	/usr/local/bin/python
 
 
 # Base URL to the book pages
-WKSBOOKURL      
+WKSBOOKURL      http://
 
 # Full URL coat:color anomalies
 COATANOM        http://www.informatics.jax.org/searches/marker_report.cgi?phenoslim=17
@@ -43,9 +43,9 @@ MGISEARCHES	http://www.informatics.jax.org/searches/
 
 #####################################################################
 # The following parameters are used in the gen_include script 
-INCACCRPT	http://www.informatics.jax.org/searches/accession_report.cgi?id=
+INCACCRPT	${MGISEARCHES}accession_report.cgi?id=
 
-INCALLRPT	http://www.informatics.jax.org/searches/allele_report.cgi?_Marker_key=
+INCALLRPT	${MGISEARCHES}allele_report.cgi?markerID=
 
 INCPUBMED	http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Abstract&list_uids=
 
@@ -54,3 +54,5 @@ INCUSRSUP	http://www.informatics.jax.org/mgihome/help/help.shtml
 INCPEOPLE	http://www.informatics.jax.org/mgihome/other/mgi_people.shtml
 
 INCHELPMAIL	http://www.informatics.jax.org/mgihome/support/tjl_inbox.shtml
+
+INCGLOSSARY	http://www.informatics.jax.org/mgihome/other/glossary.shtml
