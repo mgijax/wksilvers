@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# variable definitions (edit as needed)
+#CONFIG_REL=/usr/local/mgi/lib/python/Configuration.pyc
+CONFIGURATION=Configuration
+
+# ensure that the config file exists
+if test ! -r $CONFIGURATION
+then
+	echo "Missing configuration file.  Please create $CONFIGURATION."
+	exit 1
+fi
+
+# read variables from the config file
+exec 4<&0
+exec < $CONFIGURATION
+while read name value junk
+do
+	case "$name" in
+		LIBDIRS)
+			LIBDIRS=$value;;
+		CONFIGFILE)
+			CONFIGFILE=$value;;
+	esac
+done
+exec 0<&4
+
+# add links to python and the config file from selected directories
+if [ -h Configuration.pyc ]; then
+	rm Configuration.pyc
+fi
+
+ln -s $CONFIGFILE Configuration.pyc
+
+chmod 750 rosetta_report.cgi
+chgrp www rosetta_report.cgi
+
+#
+# Warranty Disclaimer and Copyright Notice
+# 
+#  THE JACKSON LABORATORY MAKES NO REPRESENTATION ABOUT THE SUITABILITY OR 
+#  ACCURACY OF THIS SOFTWARE OR DATA FOR ANY PURPOSE, AND MAKES NO WARRANTIES, 
+#  EITHER EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY AND FITNESS FOR A 
+#  PARTICULAR PURPOSE OR THAT THE USE OF THIS SOFTWARE OR DATA WILL NOT 
+#  INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS, OR OTHER RIGHTS.  
+#  THE SOFTWARE AND DATA ARE PROVIDED "AS IS".
+# 
+#  This software and data are provided to enhance knowledge and encourage 
+#  progress in the scientific community and are to be used only for research 
+#  and educational purposes.  Any reproduction or use for commercial purpose 
+#  is prohibited without the prior express written permission of the Jackson 
+#  Laboratory.
+# 
+# Copyright © 1996, 1999, 2002 by The Jackson Laboratory
+# All Rights Reserved
+#
+
