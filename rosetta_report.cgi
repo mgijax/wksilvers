@@ -82,7 +82,7 @@ class rosettaReportClass (CGI.CGI):
             'Mice (as of 1979), with their current nomenclature and links '
             'to a complete list of alleles for each of these genes. </P>'
             '<P>Please see also a <A HREF="'+ config['COATANOM'] + '" TARGET="_BLANK">table</A> '
-            'of all currently known genes in MGI annotated with the phenotype '
+            'of all currently known genotypes in MGI annotated with the phenotype '
             'term "coat color anomalies."</P>'
             )
         
