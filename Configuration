@@ -36,7 +36,7 @@ PYTHONPATH 	/usr/local/bin/python
 WKSBOOKURL      http://
 
 # Full URL coat:color anomalies
-COATANOM        http://www.informatics.jax.org/searches/marker_report.cgi?phenoslim=17
+COATANOM        http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
 
 # Base URL to the MGI searches
 MGISEARCHES	http://www.informatics.jax.org/searches/
