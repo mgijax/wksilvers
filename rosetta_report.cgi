@@ -21,6 +21,7 @@ import sys
 import string
 import cgi
 
+import ignoreDeprecation
 import Configuration
 config = Configuration.get_Configuration ('Configuration', 1)
 
