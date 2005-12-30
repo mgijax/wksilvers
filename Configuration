@@ -10,10 +10,10 @@ DBUSER		mgd_public
 DBPASSWORD	mgdpub
 
 # Name of the Sybase server 
-DBSERVER	
+DBSERVER	DEV1_MGI
 
 # Name of Sybase database
-DATABASE	
+DATABASE	mgd_wi2
 
 # Title to be displayed on dynamically created gene/allele data pages
 WKSTITLE	MGI - The Coat Colors of Mice by WK Silvers
@@ -33,7 +33,7 @@ PYTHONPATH 	/usr/local/bin/python
 
 
 # Base URL to the book pages
-WKSBOOKURL      http://
+WKSBOOKURL      http://erebor.informatics.jax.org/~pf/wksilvers_7193/
 
 # Full URL coat:color anomalies
 COATANOM        http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
@@ -55,4 +55,4 @@ INCPEOPLE	http://www.informatics.jax.org/mgihome/other/mgi_people.shtml
 
 INCHELPMAIL	http://www.informatics.jax.org/mgihome/support/tjl_inbox.shtml
 
-INCGLOSSARY	http://www.informatics.jax.org/mgihome/other/glossary.shtml
+INCGLOSSARY	http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=glossaryIndex&print=no
