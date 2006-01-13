@@ -1,3 +1,9 @@
+TAG: wksilvers-3-4-2-2
+DATE: 1/13/2006
+STAFF: jsb
+RELEASE: alpha
+CHANGES: removed DOS-style newline characters from config file
+
 TAG: wksilvers-3-4-2-1
 DATE: 1/11/2006
 STAFF: pf
