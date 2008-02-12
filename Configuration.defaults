@@ -30,7 +30,7 @@ CONFIGPATH 	/usr/local/mgi/live/lib/python/Configuration.pyc
 PYTHONPATH 	/usr/local/bin/python
 
 # Base URL mgi resources.
-PYTHON_URL     http://www.informatics.jax.org/
+MGI_URL     http://www.informatics.jax.org/
 
 # Base URL to the book pages
 WKSBOOKURL      http://www.informatics.jax.org/wksilvers/

@@ -25,7 +25,7 @@ def main ():
 	stringToFile (config['INCPEOPLE'], './www/include/people_url.html')
 	stringToFile (config['INCHELPMAIL'], './www/include/inbox_url.html')
 	stringToFile (config['INCGLOSSARY'], './www/include/glossary_url.html')
-	stringToFile (config['PYTHON_URL'], './www/include/mgi_url.html')
+	stringToFile (config['MGI_URL'], './www/include/mgi_url.html')
 	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', './www/include/rosetta_url.html')
 	return
 
