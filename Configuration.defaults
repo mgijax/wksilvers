@@ -29,6 +29,8 @@ CONFIGPATH 	/usr/local/mgi/live/lib/python/Configuration.pyc
 # Example-> /usr/local/bin/python
 PYTHONPATH 	/usr/local/bin/python
 
+# Base URL mgi resources.
+PYTHON_URL     http://www.informatics.jax.org/
 
 # Base URL to the book pages
 WKSBOOKURL      http://www.informatics.jax.org/wksilvers/
