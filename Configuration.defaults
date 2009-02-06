@@ -41,6 +41,9 @@ COATANOM        http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=mpAn
 # Base URL to the MGI searches
 MGISEARCHES	http://www.informatics.jax.org/searches/
 
+# Base URL to MGI Home
+MGIHOMEURL	http://www.informatics.jax.org/mgihome/
+
 #####################################################################
 # The following parameters are used in the gen_include script 
 INCACCRPT	${MGISEARCHES}accession_report.cgi?id=
@@ -49,10 +52,10 @@ INCALLRPT	${MGISEARCHES}allele_report.cgi?markerID=
 
 INCPUBMED	http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Abstract&list_uids=
 
-INCUSRSUP	http://www.informatics.jax.org/mgihome/help/help.shtml
+INCUSRSUP	${MGIHOMEURL}help/help.shtml
 
-INCPEOPLE	http://www.informatics.jax.org/mgihome/other/mgi_people.shtml
+INCPEOPLE	${MGIHOMEURL}other/mgi_people.shtml
 
-INCHELPMAIL	http://www.informatics.jax.org/mgihome/support/mgi_inbox.shtml
+INCHELPMAIL	${MGIHOMEURL}support/mgi_inbox.shtml
 
 INCGLOSSARY	http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=glossaryIndex&print=no
