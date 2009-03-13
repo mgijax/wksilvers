@@ -36,13 +36,13 @@ MGI_URL     http://www.informatics.jax.org/
 WKSBOOKURL      ${MGI_URL}wksilvers/
 
 # Full URL coat:color anomalies
-COATANOM        http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
+COATANOM        ${MGI_URL}javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
 
 # Base URL to the MGI searches
-MGISEARCHES	http://www.informatics.jax.org/searches/
+MGISEARCHES	${MGI_URL}searches/
 
 # Base URL to MGI Home
-MGIHOMEURL	http://www.informatics.jax.org/mgihome/
+MGIHOMEURL	${MGI_URL}mgihome/
 
 #####################################################################
 # The following parameters are used in the gen_include script 
@@ -58,4 +58,4 @@ INCPEOPLE	${MGIHOMEURL}other/mgi_people.shtml
 
 INCHELPMAIL	${MGIHOMEURL}support/mgi_inbox.shtml
 
-INCGLOSSARY	http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=glossaryIndex&print=no
+INCGLOSSARY	${MGI_URL}javawi2/servlet/WIFetch?page=glossaryIndex&print=no
