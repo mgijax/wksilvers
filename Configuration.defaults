@@ -33,7 +33,7 @@ PYTHONPATH 	/usr/local/bin/python
 MGI_URL     http://www.informatics.jax.org/
 
 # Base URL to the book pages
-WKSBOOKURL      http://www.informatics.jax.org/wksilvers/
+WKSBOOKURL      ${MGI_URL}wksilvers/
 
 # Full URL coat:color anomalies
 COATANOM        http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
