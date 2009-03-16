@@ -33,13 +33,16 @@ PYTHONPATH 	/usr/local/bin/python
 MGI_URL     http://www.informatics.jax.org/
 
 # Base URL to the book pages
-WKSBOOKURL      http://www.informatics.jax.org/wksilvers/
+WKSBOOKURL      ${MGI_URL}wksilvers/
 
 # Full URL coat:color anomalies
-COATANOM        http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
+COATANOM        ${MGI_URL}javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
 
 # Base URL to the MGI searches
-MGISEARCHES	http://www.informatics.jax.org/searches/
+MGISEARCHES	${MGI_URL}searches/
+
+# Base URL to MGI Home
+MGIHOMEURL	${MGI_URL}mgihome/
 
 #####################################################################
 # The following parameters are used in the gen_include script 
@@ -49,10 +52,10 @@ INCALLRPT	${MGISEARCHES}allele_report.cgi?markerID=
 
 INCPUBMED	http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Abstract&list_uids=
 
-INCUSRSUP	http://www.informatics.jax.org/mgihome/help/help.shtml
+INCUSRSUP	${MGIHOMEURL}help/help.shtml
 
-INCPEOPLE	http://www.informatics.jax.org/mgihome/other/mgi_people.shtml
+INCPEOPLE	${MGIHOMEURL}other/mgi_people.shtml
 
-INCHELPMAIL	http://www.informatics.jax.org/mgihome/support/tjl_inbox.shtml
+INCHELPMAIL	${MGIHOMEURL}support/mgi_inbox.shtml
 
-INCGLOSSARY	http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=glossaryIndex&print=no
+INCGLOSSARY	${MGI_URL}javawi2/servlet/WIFetch?page=glossaryIndex&print=no
