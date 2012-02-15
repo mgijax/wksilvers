@@ -2,17 +2,8 @@
 # 		 Sample WKS Configuration File               	       #
 ########################################################################
 
-# Read-only Sybase user.
-DBUSER		mgd_public
-
-# Password for the read-only Sybase user.
-DBPASSWORD	mgdpub
-
-# Name of the Sybase server 
-DBSERVER	PUB_MGI
-
-# Name of Sybase database
-DATABASE	pub_1
+MGICONFIG_PATH  /usr/local/mgi/live/mgiconfig/
+GLOBAL_CONFIG   ${MGICONFIG_PATH}web/GlobalConfig
 
 # Title to be displayed on dynamically created gene/allele data pages
 WKSTITLE	MGI - The Coat Colors of Mice by WK Silvers
