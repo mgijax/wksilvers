@@ -35,15 +35,15 @@ import Configuration
 config = Configuration.get_Configuration ('Configuration', 1)
 
 import CGI
-import db
+import pg_db
 import mgi_html
 
-DBSERVER    = config['DBSERVER']
-DBNAME      = config['DATABASE']
-DBUSER      = config['DBUSER']
-DBPASSWORD  = config['DBPASSWORD']
+DBSERVER    = config['DB_SERVER']
+DBNAME      = config['DB_DATABASE']
+DBUSER      = config['DB_USER']
+DBPASSWORD  = config['DB_PASSWORD']
 
-db.set_sqlLogin(DBUSER,DBPASSWORD,DBSERVER,DBNAME)
+pg_db.set_sqlLogin(DBUSER,DBPASSWORD,DBSERVER,DBNAME)
 
 
 class rosettaReportClass (CGI.CGI):
@@ -129,7 +129,7 @@ class rosettaReportClass (CGI.CGI):
         # Pull needed data from database
         # Query 1: Pulls gene data that is in both WK SIlvers book and MGI
         # Query 2: Pulls gene data that is only in the WK SIlvers book
-        resultsList = db.sql ([ 
+        resultsList = pg_db.sql ([ 
             '''select distinct
             r.wks_markersymbol, r.wks_markerurl,
             r._marker_key, m.symbol, m.name, a.accid
