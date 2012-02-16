@@ -182,7 +182,7 @@ class rosettaReportClass (CGI.CGI):
                 rowBGColor,
                 config['WKSBOOKURL'] + resultsList[0][sqlRowNum]['wks_markerurl'],
                 mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['wks_markersymbol'])),
-                config['MGISEARCHES'] + 'accession_report.cgi?id=' + str(resultsList[0][sqlRowNum]['accid']),
+                config['FEWI_URL'] + 'accession/' + str(resultsList[0][sqlRowNum]['accid']),
                 mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['symbol'])),
                 config['MGISEARCHES'] + 'allele_report.cgi?_Marker_key=' + str(resultsList[0][sqlRowNum]['_marker_key']),
                 mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['symbol'])) + ' allele(s)'
