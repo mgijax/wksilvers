@@ -37,7 +37,7 @@ MGIHOMEURL	${MGI_URL}mgihome/
 
 #####################################################################
 # The following parameters are used in the gen_include script 
-INCACCRPT	${MGISEARCHES}accession_report.cgi?id=
+INCACCRPT	${MGI}accession/
 
 INCALLRPT	${MGISEARCHES}allele_report.cgi?markerID=
 
