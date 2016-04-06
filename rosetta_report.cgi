@@ -116,7 +116,7 @@ class rosettaReportClass (CGI.CGI):
         # 3) WKS Gene 
         # 4) URL: To MGI gene detail for given gene
         # 5) MGI gene
-        # 6) URL: To MGI allele_report using given 
+        # 6) URL: To MGI allele report using given 
         # 7) MGI Gene
         
         tableRow = '<TR BGCOLOR=%s>'\
@@ -184,7 +184,7 @@ class rosettaReportClass (CGI.CGI):
                 mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['wks_markersymbol'])),
                 config['FEWI_URL'] + 'accession/' + str(resultsList[0][sqlRowNum]['accid']),
                 mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['symbol'])),
-                config['MGISEARCHES'] + 'allele_report.cgi?_Marker_key=' + str(resultsList[0][sqlRowNum]['_marker_key']),
+                config['FEWI_URL'] + 'allele/summary?markerId=' + str(resultsList[0][sqlRowNum]['accid']),
                 mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['symbol'])) + ' allele(s)'
                 ))
 

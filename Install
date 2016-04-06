@@ -55,8 +55,6 @@ do
 			LIBDIRS=$value;;
 		CONFIGPATH)
 			CONFIGPATH=$value;;
-		PYTHONPATH)
-			PYTHONPATH=$value;;
 	esac
 done
 exec 0<&4
@@ -72,7 +70,7 @@ ln -s $CONFIGPATH Configuration.pyc
 if [ -h python ]; then
 	rm python
 fi
-ln -s $PYTHONPATH python
+ln -s $PYTHON python
 
 #####################################################################
 ### Un"tar" the www book files, create include directory, generate
