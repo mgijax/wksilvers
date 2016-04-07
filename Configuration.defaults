@@ -16,24 +16,21 @@ LIBDIRS		/usr/local/mgi/live/lib/python/
 # Path to compiled python configuration file.
 CONFIGPATH 	/usr/local/mgi/live/lib/python/Configuration.pyc
 
-# Base URL mgi resources.
-MGI_URL     http://www.informatics.jax.org/
-
 # Base URL to the book pages
-WKSBOOKURL      ${MGI_URL}wksilvers/
+WKSBOOKURL      ${WI_URL}wksilvers/
 
 # Full URL coat:color anomalies
-COATANOM        ${MGI_URL}javawi2/servlet/WIFetch?page=mpAnnotSummary&id=MP:0002075
+COATANOM        ${FEWI_URL}mp/annotations/MP:0002075
 
 # Base URL to the MGI searches
-MGISEARCHES	${MGI_URL}searches/
+MGISEARCHES	${WI_URL}searches/
 
 # Base URL to MGI Home
-MGIHOMEURL	${MGI_URL}mgihome/
+MGIHOMEURL	${WI_URL}mgihome/
 
 #####################################################################
 # The following parameters are used in the gen_include script 
-INCACCRPT	${MGI_URL}accession/
+INCACCRPT	${WI_URL}accession/
 
 INCALLRPT	${FEWI_URL}allele/summary?markerId=
 
@@ -45,4 +42,4 @@ INCPEOPLE	${MGIHOMEURL}other/mgi_people.shtml
 
 INCHELPMAIL	${MGIHOMEURL}support/mgi_inbox.shtml
 
-INCGLOSSARY	${MGI_URL}javawi2/servlet/WIFetch?page=glossaryIndex&print=no
+INCGLOSSARY	${FEWI_URL}glossary
