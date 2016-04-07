@@ -72,6 +72,7 @@ if [ -h python ]; then
 fi
 ln -s $PYTHON python
 
+
 #####################################################################
 ### Un"tar" the www book files, create include directory, generate
 ### the needed include files, and set permissions for this directory
