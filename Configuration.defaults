@@ -34,7 +34,7 @@ INCACCRPT	${WI_URL}accession/
 
 INCALLRPT	${FEWI_URL}allele/summary?markerId=
 
-INCPUBMED	http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Abstract&list_uids=
+INCPUBMED	https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&dopt=Abstract&list_uids=
 
 INCUSRSUP	${MGIHOMEURL}help/help.shtml
 
