@@ -35,16 +35,7 @@ import Configuration
 config = Configuration.get_Configuration ('Configuration', 1)
 
 import CGI
-import pg_db
 import mgi_html
-
-DBSERVER    = config['DB_SERVER']
-DBNAME      = config['DB_DATABASE']
-DBUSER      = config['DB_USER']
-DBPASSWORD  = config['DB_PASSWORD']
-
-pg_db.set_sqlLogin(DBUSER,DBPASSWORD,DBSERVER,DBNAME)
-
 
 class rosettaReportClass (CGI.CGI):
 ###########################################################
@@ -70,7 +61,9 @@ class rosettaReportClass (CGI.CGI):
     
         # Open page and add HTML page headings
         rosettaPage = [ '<HTML><HEAD>', '<TITLE>%s - ' % config['WKSTITLE'],
-            '</TITLE>', '</HEAD><BODY BGCOLOR="#FFFFFF">',
+            '</TITLE>',
+	    '</HEAD><BODY BGCOLOR="#FFFFFF">',
+	    '<SCRIPT TYPE="text/javascript" SRC="%sjs/jquery-1.10.2.min.js"></SCRIPT>' % config['WEBSHARE_URL'],
             ]
 
         # Add banner
@@ -102,94 +95,22 @@ class rosettaReportClass (CGI.CGI):
     def makeRosettaTable(self,rosettaPage):
     #######################################################
     # Purpose: Add the rosetta data table to the return page.
-    #   This method will add a data row for each entry in 
-    #   wks_rosetta
     # Returns: rosettaPage (list of strings)
     # Assumes: rosettaPage has already been opened and prepared with
     #   the required HTML tags
     # Effects: rosettaPage
     # Throws:  Nothing
-        # Define string literal used to append each data row to table
-        # Inputs:
-        # 1) Shading
-        # 2) URL: To WKS chapter referencing the given gene
-        # 3) WKS Gene 
-        # 4) URL: To MGI gene detail for given gene
-        # 5) MGI gene
-        # 6) URL: To MGI allele report using given 
-        # 7) MGI Gene
-        
-        tableRow = '<TR BGCOLOR=%s>'\
-            ' <TD><A HREF = %s>%s</A></TD>'\
-            ' <TD><A HREF = %s TARGET="_BLANK">%s</A></TD>'\
-            ' <TD><A HREF = %s TARGET="_BLANK">%s</A></TD>'\
-            '</TR>'
-            
-            
-        # Pull needed data from database
-        # Query 1: Pulls gene data that is in both WK SIlvers book and MGI
-        # Query 2: Pulls gene data that is only in the WK SIlvers book
-        resultsList = pg_db.sql ([ 
-            '''select distinct
-            r.wks_markersymbol, r.wks_markerurl,
-            r._marker_key, m.symbol, m.name, a.accid
-            from wks_rosetta r, mrk_marker m, acc_accession a
-            where r._marker_key = m._marker_key
-            and   r.wks_markersymbol is not null
-            and   r._marker_key = a._object_key
-            and   a._logicaldb_key = 1
-            and   a.preferred = 1
-            and   a._mgitype_key = 2            
-            order by r.wks_markersymbol'''
-            ], 'auto')
-        
-        # Add descriptive table for data headings
-        rosettaPage.append(
-            '<TABLE BORDER=1 CELLPADDING=2 CELLSPACING=0 WIDTH="100%">'
-                '<TR BGCOLOR="#D0E0F0" VALIGN=top ALIGN=left>'
-                    '<TD ALIGN=CENTER WIDTH="40%">'
-                        '<FONT COLOR="#000000" face="Arial,Helvetica">'
-                        'Gene Symbols used in <BR><I>The Coat Colors of Mice '
-                        '</I></FONT>'
-                    '</TD>'
-                    '<TD ALIGN=CENTER WIDTH="60%">'
-                        '<FONT COLOR="#000000" face="Arial,Helvetica"> '
-                        'Official Gene Nomenclature <BR>'
-                        'from Mouse Genome Informatics</FONT>'
-                    '</TD>'
-                '</TR>'
-            '</TABLE>')
-        
-        # Start data table and add column heading to the table
-        rosettaPage.append ('<TABLE border=0 CELLPADDING=2 WIDTH="100%">'
-            '<TR>'
-                '<TD WIDTH="40%">Symbol in W.K. Silvers</TD>'
-                '<TD WIDTH="30%">Current Gene Symbol</TD>'
-                '<TD WIDTH="30%">Phenotypic Alleles</TD>'
-            '</TR>'
-            )
-        
-        # Add each row of query to the table
-        for sqlRowNum in range(len(resultsList[0])):
-            if self.totalRowCount%2 == 1:
-                rowBGColor = '#FFFFFF'
-            else:
-                rowBGColor = '#DDDDDD'
-                
-            self.totalRowCount = self.totalRowCount + 1
 
-            rosettaPage.append (tableRow % (
-                rowBGColor,
-                config['WKSBOOKURL'] + resultsList[0][sqlRowNum]['wks_markerurl'],
-                mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['wks_markersymbol'])),
-                config['FEWI_URL'] + 'accession/' + str(resultsList[0][sqlRowNum]['accid']),
-                mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['symbol'])),
-                config['FEWI_URL'] + 'allele/summary?markerId=' + str(resultsList[0][sqlRowNum]['accid']),
-                mgi_html.doSubSupTags(str(resultsList[0][sqlRowNum]['symbol'])) + ' allele(s)'
-                ))
+    	rosettaPage.append('<DIV ID="rosettaDiv">Loading...</DIV>')
 
-        # Close the data table
-        rosettaPage.append ('</table>')
+	rosettaPage.append('''<SCRIPT>
+		$(document).ready(function(){
+			$.ajax({ url: "%smarker/wksilversTable",
+				success: function(data){
+					$('#rosettaDiv').html(data);
+				}});
+			});
+		</SCRIPT>''' % config['FEWI_URL'])
 
         return rosettaPage
 
