@@ -74,16 +74,24 @@ exec 0<&4
 #####################################################################
 ### Add link to compiled configuration python module 
 ### and python executable
-if [ -h Configuration.pyc ]; then
-	rm Configuration.pyc
+if [ -h Configuration.py ]; then
+	rm Configuration.py
 fi
-ln -s $CONFIGPATH Configuration.pyc
+ln -s $CONFIGPATH Configuration.py
 
 if [ -h python ]; then
 	rm python
 fi
 ln -s $PYTHON python
 
+#####################################################################
+### Add link to the MGI Python libraries
+if [ -h  pythonLibs ]; then
+	rm pythonLibs
+fi
+MGI_PYTHONLIB=`dirname ${CONFIGPATH}`
+ln -s $MGI_PYTHONLIB pythonLibs
+echo "Added link from pythonLibs to $MGI_PYTHONLIB"
 
 #####################################################################
 ### Un"tar" the www book files, create include directory, generate
@@ -110,10 +118,10 @@ if [ -h rosetta_report.cgi ]; then
 fi
 ln -s ../rosetta_report.cgi rosetta_report.cgi
 
-if [ -h Configuration.pyc ]; then
-	rm Configuration.pyc
+if [ -h Configuration.py ]; then
+	rm Configuration.py
 fi
-ln -s ../Configuration.pyc Configuration.pyc
+ln -s ../Configuration.py Configuration.py
 
 if [ -h Configuration ]; then
 	rm Configuration
@@ -131,10 +139,12 @@ includeLinker
 ### Generate includes, create solt links, and update permissions
 
 cd $TOP
+PYTHONPATH=`dirname ${CONFIGPATH}`:${PYTHONPATH} 
+export PYTHONPATH
 gen_includes
 
-chmod 750 www
-chgrp www www
+chmod -R 755 www
+chgrp -R www www
 
 
 

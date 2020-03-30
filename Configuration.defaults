@@ -13,8 +13,8 @@ WKSTITLE	MGI - The Coat Colors of Mice by WK Silvers
 # to your mgi/lib/ directory.
 LIBDIRS		/usr/local/mgi/live/lib/python/
 
-# Path to compiled python configuration file.
-CONFIGPATH 	/usr/local/mgi/live/lib/python/Configuration.pyc
+# Path to python configuration module
+CONFIGPATH 	/usr/local/mgi/live/lib/python/Configuration.py
 
 # Base URL to the book pages
 WKSBOOKURL      ${WI_URL}wksilvers/
