@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!./python
 #
 # Program: rosetta_report.cgi
 #
@@ -18,24 +18,17 @@
 
 
 import sys
-import string
-import cgi
 
 # add the MGI standard library directory to the PythonPath so that we can find
 # the standard Configuration.py and ignoreDeprecation modules:
-MGI_LIBS = '/usr/local/mgi/live/lib/python'
+MGI_LIBS = './pythonLibs'
 if MGI_LIBS not in sys.path:
-	sys.path.insert (0, MGI_LIBS)
-
-# for now, ignore any deprecation errors that could be caused by the
-# migration to Python 2.4.2 -- we'll fix them later
-import ignoreDeprecation
+        sys.path.insert (0, MGI_LIBS)
 
 import Configuration
 config = Configuration.get_Configuration ('Configuration', 1)
 
 import CGI
-import mgi_html
 
 class rosettaReportClass (CGI.CGI):
 ###########################################################
@@ -62,8 +55,8 @@ class rosettaReportClass (CGI.CGI):
         # Open page and add HTML page headings
         rosettaPage = [ '<HTML><HEAD>', '<TITLE>%s - ' % config['WKSTITLE'],
             '</TITLE>',
-	    '</HEAD><BODY BGCOLOR="#FFFFFF">',
-	    '<SCRIPT TYPE="text/javascript" SRC="%sjs/jquery-1.10.2.min.js"></SCRIPT>' % config['WEBSHARE_URL'],
+            '</HEAD><BODY BGCOLOR="#FFFFFF">',
+            '<SCRIPT TYPE="text/javascript" SRC="%sjs/jquery-1.10.2.min.js"></SCRIPT>' % config['WEBSHARE_URL'],
             ]
 
         # Add banner
@@ -101,16 +94,16 @@ class rosettaReportClass (CGI.CGI):
     # Effects: rosettaPage
     # Throws:  Nothing
 
-    	rosettaPage.append('<DIV ID="rosettaDiv">Loading...</DIV>')
+        rosettaPage.append('<DIV ID="rosettaDiv">Loading...</DIV>')
 
-	rosettaPage.append('''<SCRIPT>
-		$(document).ready(function(){
-			$.ajax({ url: "%smarker/wksilversTable",
-				success: function(data){
-					$('#rosettaDiv').html(data);
-				}});
-			});
-		</SCRIPT>''' % config['FEWI_URL'])
+        rosettaPage.append('''<SCRIPT>
+                $(document).ready(function(){
+                        $.ajax({ url: "%smarker/wksilversTable",
+                                success: function(data){
+                                        $('#rosettaDiv').html(data);
+                                }});
+                        });
+                </SCRIPT>''' % config['FEWI_URL'])
 
         return rosettaPage
 
@@ -132,7 +125,7 @@ class rosettaReportClass (CGI.CGI):
 
         # output page to STDOUT
         for outputString in rosettaPage:
-            print outputString
+            print(outputString)
         
         return
 
