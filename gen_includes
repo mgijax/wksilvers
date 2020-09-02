@@ -5,7 +5,7 @@ import Configuration
 config = Configuration.get_Configuration ('Configuration', 1)
 
 def listToFile (str_list, filename):
-	print "writing %s" % filename
+	print ("writing %s" % filename)
 	fp = open (filename, 'w')
 	for item in str_list:
 		fp.write ('%s\n' % item)
