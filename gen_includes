@@ -25,7 +25,7 @@ def main ():
 	stringToFile (config['INCHELPMAIL'], './include/mgi_support.html')
 	stringToFile (config['INCGLOSSARY'], './include/glossary_url.html')
 	stringToFile (config['WI_URL'],      './include/mgi_url.html')
-	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', './include/rosetta_url.html')
+	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', '.st/include/rosetta_url.html')
 	return
 
 if __name__ == '__main__':
