@@ -17,15 +17,15 @@ def stringToFile (s, filename):
 	return
 
 def main ():
-	stringToFile (config['INCACCRPT'], './www/include/mgiid_url.html')
-	stringToFile (config['INCALLRPT'], './www/include/mgiall_url.html')
-	stringToFile (config['INCPUBMED'], './www/include/pubmed_url.html')
-	stringToFile (config['INCUSRSUP'], './www/include/support_url.html')
-	stringToFile (config['INCPEOPLE'], './www/include/people_url.html')
-	stringToFile (config['INCHELPMAIL'], './www/include/mgi_support.html')
-	stringToFile (config['INCGLOSSARY'], './www/include/glossary_url.html')
-	stringToFile (config['WI_URL'], './www/include/mgi_url.html')
-	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', './www/include/rosetta_url.html')
+	stringToFile (config['INCACCRPT'],   './include/mgiid_url.html')
+	stringToFile (config['INCALLRPT'],   './include/mgiall_url.html')
+	stringToFile (config['INCPUBMED'],   './include/pubmed_url.html')
+	stringToFile (config['INCUSRSUP'],   './include/support_url.html')
+	stringToFile (config['INCPEOPLE'],   './include/people_url.html')
+	stringToFile (config['INCHELPMAIL'], './include/mgi_support.html')
+	stringToFile (config['INCGLOSSARY'], './include/glossary_url.html')
+	stringToFile (config['WI_URL'],      './include/mgi_url.html')
+	stringToFile (config['WKSBOOKURL'] + 'rosetta_report.cgi', './include/rosetta_url.html')
 	return
 
 if __name__ == '__main__':
