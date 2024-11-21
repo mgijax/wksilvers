@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+	<TITLE>User's Guide</TITLE>
+	<META NAME="generator" CONTENT="BBEdit 5.1.1">
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<H2>A User's Guide to <I>The Coat Colors of Mice</I> by Willys K. Silvers</H2>
+
+<H3>Introduction</H3>
+
+<P>The purpose of this User's Guide is to assist you in using all of the features of the electronic version of 
+<I>The Coat Colors of Mice</I> by Willys K. Silvers.
+
+<H3>Navigation</H3>
+
+<P>There are several ways to navigate through this book:
+
+<UL>
+<LI>The Table of Contents</LI>
+<LI>The abbreviated Table of Contents in the left column of most pages</LI>
+<LI>The <B>Previous</B> and <B>Next</B> links at the top and bottom of most pages</LI>
+<LI>Internal links within the body of the text</LI>
+<LI>The Subject Index</LI>
+</UL>
+
+<P>The 
+<A HREF="contents.shtml">Table of Contents</A> lists Chapter and subchapter headings. Click on any link in the Table of Contents to go to that section of the text.
+
+<P>See 
+<A HREF="frames/frame1-1.shtml">Chapter 1</A> for an example of the abbreviated Table of Contents and the <B>Previous</B> and <B>Next</B> links.
+
+<P>Internal links in the body of the text may refer to other sections of the book, including references and footnotes.
+
+<P>The 
+<A HREF="frames/framesubjectindex.shtml">Subject Index</A> links to relevant sections of the text, and also to Tables and Figures.
+
+<H3>Special Features</H3>
+
+<P><B>Genes:</B> Mouse coat color genes and alleles mentioned in the text are linked to MGI pages containing information on those genes and alleles, including current nomenclature. 
+There are three kinds of these links. 
+<UL>
+<LI><B>MGI Allele:</B> Click to go to the MGI Allele Detail page.</LI>
+<LI><B>MGI Gene:</B> Click to go to the MGI Gene Detail page.</LI>
+<LI><B>All MGI Alleles:</B> Click to go to an Alleles Summary report containing links to all alleles in MGI.</LI>
+</UL>
+These links occur within the headings of chapters and sections of the book specifically describing that gene or allele, but not at every mention of that gene or allele in other sections.
+
+<P><B>Coat Color Genes of the Mouse Table</B>: Click the link in the navigation bar to go to a 
+<A HREF="frames/frameRST.shtml">table</A> showing the symbols for all the coat color genes in the book, and their current nomenclature in MGI. 
+Links from this table go to relevant chapters in the book, or to Gene Detail Pages or Allele Summary Pages at MGI.
+
+<P>For example, see the links at the heading for the 
+<A HREF="frames/framebrown.shtml"><I>brown</I></A> (
+<A HREF="frames/framebrown.shtml"><I>b</I></A>) allele.
+
+<P><B>References:</B> Citations within the body of the text are linked to the appropriate reference in the <B>References</B> section. 
+
+<P>Many of the references are also in the body of literature curated by Mouse Genome Informatics. 
+These will have a link to the citation in MGI below the citation in the <B>References</B> section. 
+Clicking the link to MGI will take you to the references detail page at MGI. 
+For example, 
+<A HREF="frames/frameSilvers1.shtml">Silvers (1956)</A> is also curated at MGI. Clicking the link to MGI lets you search for Genes, Markers and Phenotypes, 
+Marker Mapping Information, or Molecular Probes and Segments in MGI from this reference. This page also links to the citation in PubMed. 
+Other references are not curated at MGI, but are curated in PubMed. For example, 
+<A HREF="frames/frameDeol6.shtml">Deol et al. (1970b)</A> is such a citation. Clicking the link to PubMed take you to the page containing the Abstract and several 
+useful search features: click <B>Related Articles</B> to see references that may be more up to date, or <B>Books</B> to see chapters from reference works related to 
+the subject of the reference. 
+
+<P><B>Tables:</B> Clicking a reference to a Table within the text will cause that Table to appear in a new browser window (see, for example, 
+<a href="javascript:windowt21 = window.open('tables/table2-1.shtml', 'windowt21', 'width=720,height=550,resizable=yes,scrollbars=yes'); windowt21.focus()">Table 2-1</A>). 
+All Tables are listed on the page
+<A HREF="frames/frametables.shtml">List of Tables</A>.
+
+<P><B>Figures:</B> Clicking a reference to a Figure within the text will cause that Figure to appear in a new browser window (see, for example, 
+<a href="javascript:windowf12 = window.open('figures/figure1-2.shtml', 'windowf12', 'width=720,height=550,resizable=yes,scrollbars=yes'); windowf12.focus()">Figure 1-2</A>). 
+All Figures are listed on the page
+<A HREF="frames/framefigures.shtml">List of Figures</A>. In addition, the 
+<A HREF="frames/frameimageindex.shtml">Image Index</A> contains thumbnail images of all figures.
+
+
+<H3>Further Assistance</H3>
+
+<P>Please send question and comments to 
+<A HREF="<!--#include file='include/mgi_support.html'-->" target="_blank">MGI User Support</A>.
+
+</BODY>
+</HTML>

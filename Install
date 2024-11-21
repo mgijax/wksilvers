@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Program: Install
+# Purpose: Install script for the WK Silver Book
+# Assumptions: that this script is run from the directory which contains it
+
 #
 #  If the MGICONFIG environment variable does not have a local override,
 #  use the default "live" settings.
@@ -12,149 +16,48 @@ fi
 
 . ${MGICONFIG}/master.config.sh
 
-#####################################################################
-###  Variable definitions (edit as needed)
+###--- Global Variables ---###
 
 TOP=`pwd`
 CONFIGURATION=Configuration
 
-
 #####################################################################
-### includeLinker function - create a ../include symbolic link in 
-### the current directory and in each subdirectory (recursively)
-
-includeLinker() {
-	# do this directory
-	if [ -h include ]; then
-		rm include
-	fi
-	if [ ! -d include ]; then
-		echo "Linking to include/ in `pwd`"
-		ln -s ../include include
-	fi
-
-	# then do all subdirectories recursively
-	for name in `ls`
-	do
-		if [ -d $name ]; then
-			if [ $name != include ]; then
-				if [ $name != CVS ]; then
-					cd $name
-					(includeLinker)
-					cd ..
-				fi
-			fi
-		fi
-	done
-	}
-
-
-
+###  MAIN LOGIC
 #####################################################################
-### Read variables from the config file
+
+###--- Config setup and reading of non-include parameters --------###
 if test ! -r $CONFIGURATION
 then
-	echo "Missing configuration file.  Please create $CONFIGURATION."
-	exit 1
+    echo "Missing configuration file.  Please create $CONFIGURATION."
+    exit 1
 fi
 
 exec 4<&0
 exec < $CONFIGURATION
 while read name value junk
 do
-	case "$name" in
-		LIBDIRS)
-			LIBDIRS=$value;;
-		CONFIGPATH)
-			CONFIGPATH=$value;;
-	esac
+    case "$name" in
+        LIBDIRS)
+            LIBDIRS=$value;;
+        CONFIGPATH)
+            CONFIGPATH=$value;;
+    esac
 done
 exec 0<&4
 
-#####################################################################
-### Add link to compiled configuration python module 
-### and python executable
+###--- Add link to configuration python executable ---------------###
 if [ -h Configuration.pyc ]; then
-	rm Configuration.pyc
+    rm Configuration.pyc
 fi
 ln -s $CONFIGPATH Configuration.pyc
 
 if [ -h python ]; then
-	rm python
+    rm python
 fi
 ln -s $PYTHON python
 
-
-#####################################################################
-### Un"tar" the www book files, create include directory, generate
-### the needed include files, and set permissions for this directory
-
-tar xvfp book.tar
-if [ ! -d www ]; then
-	echo "An error has occured attempting to untar book.tar"
-	exit 1
-fi
-
-#####################################################################
-### Prep the www directory
-
-cd www
-
-if [ ! -d include ]; then
-	echo "Making 'include' directory in `pwd`"
-	mkdir include
-fi
-
-if [ -h rosetta_report.cgi ]; then
-	rm rosetta_report.cgi
-fi
-ln -s ../rosetta_report.cgi rosetta_report.cgi
-
-if [ -h Configuration.pyc ]; then
-	rm Configuration.pyc
-fi
-ln -s ../Configuration.pyc Configuration.pyc
-
-if [ -h Configuration ]; then
-	rm Configuration
-fi
-ln -s ../Configuration Configuration
-
-if [ -h python ]; then
-	rm python
-fi
-ln -s ../python python
-
-includeLinker
-
-#####################################################################
-### Generate includes, create solt links, and update permissions
-
-cd $TOP
+###--- Generate the include directory ----------------------------###
 gen_includes
-
-chmod 750 www
-chgrp www www
-
-
-
-#
-# Warranty Disclaimer and Copyright Notice
-# 
-#  THE JACKSON LABORATORY MAKES NO REPRESENTATION ABOUT THE SUITABILITY OR 
-#  ACCURACY OF THIS SOFTWARE OR DATA FOR ANY PURPOSE, AND MAKES NO WARRANTIES, 
-#  EITHER EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY AND FITNESS FOR A 
-#  PARTICULAR PURPOSE OR THAT THE USE OF THIS SOFTWARE OR DATA WILL NOT 
-#  INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS, OR OTHER RIGHTS.  
-#  THE SOFTWARE AND DATA ARE PROVIDED "AS IS".
-# 
-#  This software and data are provided to enhance knowledge and encourage 
-#  progress in the scientific community and are to be used only for research 
-#  and educational purposes.  Any reproduction or use for commercial purpose 
-#  is prohibited without the prior express written permission of the Jackson 
-#  Laboratory.
-# 
-# Copyright (c) 1996, 1999, 2002 by The Jackson Laboratory
-# All Rights Reserved
-#
+chmod -f 750 Configuration Configuration.defaults gen_includes HISTORY include Install www
+chgrp -f www Configuration Configuration.defaults gen_includes HISTORY include Install www
 
